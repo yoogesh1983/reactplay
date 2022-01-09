@@ -1,38 +1,30 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Child from './Child'
 
-class Parent extends Component{
+const Parent = (props) => {
 
-    constructor(props){
-        super(props)
-        this.state= {
-            current: 0,
-        };
-    }
+    const [current, setCurrent] = useState(0)
 
-    componentDidUpdate(){
+    useEffect(()=> {
         console.log("Parent is re-rendered.....");
-    }
+    });
 
-    generateValue(e){
+    const generateValue = e => {
         e.preventDefault();
-        this.setState({
-            current: Math.floor(Math.random() * 3)
-        })
+        setCurrent(Math.floor(Math.random() * 3))
     }
 
-    render() {
-        return (
-            <React.Fragment>
-              <p>Current value: <strong>{this.state.current}</strong></p>
-              <button onClick={this.generateValue.bind(this)}>Change value</button>
-              <Child number={this.state.current}/>
-            </React.Fragment>
-        )
-    }
-     
+    const memoizeChild = useMemo(()=> {
+        return <Child number={current} />
+    }, [current])
+
+    return(
+        <React.Fragment>
+            <p>Current value: <strong>{current}</strong></p>
+            <button onClick={generateValue}>Change value</button>
+            {memoizeChild}
+        </React.Fragment>
+      );
 }
 
 export default Parent;
-
-

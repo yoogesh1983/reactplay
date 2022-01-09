@@ -1,25 +1,19 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 
-class Child extends Component{
 
-    constructor(props){
-        super(props)
-    }
+const Child = props => {
 
-    componentDidUpdate(){
+    useEffect(() => {
         console.log("Child is re-rendered.....");
-    }
+    })
 
-    render() {
-        return (
-            <React.Fragment>
-              <p>Squre of {this.props.number} is {Math.pow(this.props.number, 2)} </p>
-            </React.Fragment>
-        )
-    }
-     
+    return(
+        <React.Fragment>
+            <p>Squre of {props.number} is {Math.pow(props.number, 2)} </p>
+        </React.Fragment>
+    );
 }
 
-export default React.memo(Child);
+export default Child;
 
 

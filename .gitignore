@@ -1,0 +1,9 @@
+build
+node_modules
+public
+.idea
+.project
+.settings
+package-lock.json
+.DS_Store
+style.css

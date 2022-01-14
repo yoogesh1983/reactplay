@@ -8,6 +8,9 @@ import {loggerAfter} from './middlewire/loggerAfter';
 import Signin from './components/Signin';
 import {useReducerWrapper} from './util/ReactUtil'
 
+//Practice
+import Yoogesh from './practice/recursive/Yoogesh';
+
 //context setup
 export const DBContext = createContext();
 export const Connect = () => useContext(DBContext);
@@ -25,8 +28,7 @@ const App = () => {
       <BrowserRouter>
         <React.StrictMode>
           <Switch>
-            <Route exact path="/" component={ThemeButton} />
-            <Route exact path="/login" component={Signin} />
+            <Route exact path="/" component={Yoogesh} />
           </Switch>
         </React.StrictMode>
       </BrowserRouter>

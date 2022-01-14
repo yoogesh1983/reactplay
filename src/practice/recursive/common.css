@@ -1,0 +1,10 @@
+.accordian {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: green;
+    cursor: pointer;
+    border: 1px solid white;
+    color:white;
+    /*display: none; */
+}

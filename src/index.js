@@ -28,7 +28,9 @@ const App = () => {
       <BrowserRouter>
         <React.StrictMode>
           <Switch>
-            <Route exact path="/" component={Yoogesh} />
+            <Route exact path="/login" component={Signin} />
+            <Route exact path="/theme" component={ThemeButton} />
+            <Route exact path="/recursive" component={Yoogesh} />
           </Switch>
         </React.StrictMode>
       </BrowserRouter>

@@ -21,7 +21,7 @@ const Menu = ({ data, selectedFolders, depth=0, onChange }) => {
   return data.map((next) => (
     <>
       <div className="accordian">
-          <input type="checkbox" style={{marginLeft: `${depth * 20}px`}} onClick={() => mainCheckboxClick(next.name)}/>
+          <input type="checkbox" style={{marginLeft: `${depth * 20}px`}} id={next.name} onClick={() => mainCheckboxClick(next.name)}/>
           <label for={next.name} style={{color: 'green', fontWeight: 'bold'}}>{next.name}</label>
       </div>
 

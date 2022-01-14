@@ -1,34 +1,35 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './common.css';
 
-const Menu = ({ data, selectedOption, onClick, depth}) => {
+const Menu = ({ data, selectedFolders, depth=0, onChange }) => {
 
-  const handleCheckboxClicked = (selectedOptionId) => {
-    console.log(selectedOptionId, 'is clicked')
-    onClick(selectedOptionId)
-  };
+  const mainCheckboxClick = id => {
+    if(selectedFolders[id]){
+      delete selectedFolders[id];
+    } else {
+      selectedFolders[id] = {};
+    }
+    onChange(selectedFolders);
+  }
 
-  // Where to stop
-  if (!data || !data.length) {
-    return null;
+  const subCheckboxClick = (id, subFolders) => {
+    selectedFolders[id] = subFolders;
+    onChange(selectedFolders);
   }
 
   // what to do
   return data.map((next) => (
     <>
-      <div
-        key={`${next.name}${depth}`}
-        className="accordian"
-        style={{marginLeft: `${depth * 20}px`, marginRight: `${depth * 20}px`}}
-        onClick={() => handleCheckboxClicked(next.id)}
-      >
-        <span>{next.name}</span>
-        <span>🔻</span>
+      <div className="accordian">
+          <input type="checkbox" style={{marginLeft: `${depth * 20}px`}} onClick={() => mainCheckboxClick(next.name)}/>
+          <label for={next.name} style={{color: 'green', fontWeight: 'bold'}}>{next.name}</label>
       </div>
 
-      <Menu data={next.subOptions} selectedOption={selectedOption} depth={depth + 1} onClick={() => handleCheckboxClicked(next.id)} />
+      {next.subFolder && next.subFolder.length > 0 && selectedFolders[next.name] &&
+        <Menu data={next.subFolder}  selectedFolders={selectedFolders[next.name]} depth={depth + 1} onChange={subFolders => subCheckboxClick(next.name, subFolders)} />
+      }
     </>
   ));
 };
 
-export default Menu;
+export default Menu; 

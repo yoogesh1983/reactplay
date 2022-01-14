@@ -4,13 +4,12 @@ import Menu from './Menu';
 
 const Yoogesh = () => {
 
-  const [selectedOption, setSelectedOption] = useState('')
-  const depth = 0;
+  const [selectedFolders, setSelectedFolders] = useState({})
 
   return (
           <>
-            <h1>Folders {selectedOption}</h1>
-            <Menu data= {response} selectedOption={selectedOption} onClick={next => setSelectedOption(next)} depth={depth}/>
+            <h1>Folder</h1>
+            <Menu data= {response} selectedFolders={selectedFolders} onChange={next => setSelectedFolders({...selectedFolders, next})}/>
           </>
   );
 }

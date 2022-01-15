@@ -7,9 +7,11 @@ import {loggerBefore} from './middlewire/loggerBefore';
 import {loggerAfter} from './middlewire/loggerAfter';
 import Signin from './components/Signin';
 import {useReducerWrapper} from './util/ReactUtil'
-
 //Practice
 import Yoogesh from './practice/recursive/Yoogesh';
+import useHook1 from './practice/usehook/First'
+import useHook2 from './practice/usehook/Second'
+
 
 //context setup
 export const DBContext = createContext();
@@ -30,7 +32,10 @@ const App = () => {
           <Switch>
             <Route exact path="/login" component={Signin} />
             <Route exact path="/theme" component={ThemeButton} />
+
             <Route exact path="/recursive" component={Yoogesh} />
+            <Route exact path="/usehook1" component={useHook1} />
+            <Route exact path="/usehook2" component={useHook2} />
           </Switch>
         </React.StrictMode>
       </BrowserRouter>

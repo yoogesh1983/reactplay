@@ -2,7 +2,7 @@ const initialState = {
   primary: "green",
 };
 
-const themeReducer = (state, action) => {
+const themeReducer = (state=initialState, action) => {
   switch (action.type) {
     case "changeTheme":
       return {

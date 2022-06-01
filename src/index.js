@@ -7,10 +7,9 @@ import {loggerBefore} from './middlewire/loggerBefore';
 import {loggerAfter} from './middlewire/loggerAfter';
 import Signin from './components/Signin';
 import {useReducerWrapper} from './util/ReactUtil'
-//Practice
-import Yoogesh from './practice/recursive/Yoogesh';
-import useHook1 from './practice/usehook/First'
-import useHook2 from './practice/usehook/Second'
+import Yoogesh from './components/practice/recursive/Yoogesh';
+import useHook1 from './components/practice/usehook/First'
+import useHook2 from './components/practice/usehook/Second'
 
 
 //context setup

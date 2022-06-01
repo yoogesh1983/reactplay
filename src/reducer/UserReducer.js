@@ -4,7 +4,7 @@ const initialState = {
   lastName: "Sapkota",
 };
 
-const userReducer = (state, action) => {
+const userReducer = (state=initialState, action) => {
   console.log(state.user);
   switch (action.type) {
     case "LOGIN-UPDATE":
